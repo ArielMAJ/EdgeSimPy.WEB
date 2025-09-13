@@ -13,7 +13,9 @@ function App() {
   const [url, setUrl] = useState("");
   const [algorithm, setAlgorithm] = useState<Algorithm>("smms");
   const [postData, loadingPost, postError, postSimulationData] =
-    usePost<ServiceData>("https://api.edgesimpy.artadevs.tech/simulation/services");
+    usePost<ServiceData>(
+      import.meta.env.VITE_EDGE_SIM_PY_ORCHESTRATOR_URL + "/simulation/services"
+    );
 
   const fetchData = async () => {
     try {
